@@ -7,10 +7,10 @@ require("dotenv").config();
 const port = process.env.PORT || 3000
 
 // Import model
-const User = require("./model/User");
+const User = require("./model/user");
 const Location = require("./model/location");
 const Category = require("./model/category");
-const Complaint = require("./model/Complaint");
+const Complaint = require("./model/complaint");
 const GP = require("./model/gp");
 
 const auth = require("./middleware/auth");
