@@ -135,6 +135,8 @@ app.get("/dashboard", auth, (req, res) => {
 
 // routes/locationRoutes.js
 app.get("/states", async (req, res) => {
+
+  console.log('came');
   const data = await Location.find({}, "state");
   res.json(data);
 });
