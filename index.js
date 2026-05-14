@@ -10,7 +10,7 @@ const port = process.env.PORT || 3000
 const User = require("./model/user");
 const Location = require("./model/location");
 const Category = require("./model/category");
-const Complaint = require("./model/complaint");
+const Complaint = require("./model/Complaint");
 const GP = require("./model/gp");
 
 const auth = require("./middleware/auth");
