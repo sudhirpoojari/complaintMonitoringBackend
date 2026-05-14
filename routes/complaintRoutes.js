@@ -5,7 +5,7 @@ const Complaint = require("../model/Complaint");
 const GP = require("../model/gp");
 const auth = require("../middleware/auth");
 const multer = require("multer");
-const User = require("../model/User");
+const User = require("../model/user");
 const nodemailer = require("nodemailer");
 
 const upload = multer({ dest: "uploads/" });
