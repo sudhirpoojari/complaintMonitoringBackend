@@ -38,8 +38,8 @@ mongoose.connect(process.env.DATABASE_URL || "mongodb://127.0.0.1:27017/complain
 
 async function ensureDefaultGp() {
   try {
-    const email = "gp1@example.com";
-    const password = "password123";
+    const email = process.env.DEFAULT_GP_EMAIL || "gp1@example.com";
+    const password = process.env.DEFAULT_GP_PASSWORD || "password123";
 
     const hashedPassword = await bcrypt.hash(password, 10);
     
@@ -47,10 +47,10 @@ async function ensureDefaultGp() {
       { gp_email: email },
       { 
         gp_password: hashedPassword,
-        state: "Karnataka", 
-        district: "Udupi", 
-        taluk: "Karkala", 
-        gramPanchayat: "Nitte"
+        state: process.env.DEFAULT_GP_STATE || "Karnataka", 
+        district: process.env.DEFAULT_GP_DISTRICT || "Udupi", 
+        taluk: process.env.DEFAULT_GP_TALUK || "Karkala", 
+        gramPanchayat: process.env.DEFAULT_GP_NAME || "Nitte"
       },
       { upsert: true, new: true }
     );

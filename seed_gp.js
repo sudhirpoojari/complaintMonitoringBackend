@@ -5,14 +5,14 @@ const GP = require("./model/gp");
 
 const URI = process.env.DATABASE_URL || "mongodb://127.0.0.1:27017/complaint";
 
-// Edit these details when you want to register a new Gram Panchayath
+// Read details from command-line arguments, environment variables, or fallbacks
 const NEW_GP_DETAILS = {
-  gp_email: "gp_mysore1@example.com",
-  gp_password: "securepassword123", // This will be safely hashed
-  state: "Karnataka",
-  district: "Mysore",
-  taluk: "Mysore",
-  gramPanchayat: "GP1"
+  gp_email: process.argv[2] || process.env.SEED_GP_EMAIL || "gp_mysore1@example.com",
+  gp_password: process.argv[3] || process.env.SEED_GP_PASSWORD || "securepassword123",
+  state: process.argv[4] || process.env.SEED_GP_STATE || "Karnataka",
+  district: process.argv[5] || process.env.SEED_GP_DISTRICT || "Mysore",
+  taluk: process.argv[6] || process.env.SEED_GP_TALUK || "Mysore",
+  gramPanchayat: process.argv[7] || process.env.SEED_GP_NAME || "GP1"
 };
 
 const registerGP = async () => {
